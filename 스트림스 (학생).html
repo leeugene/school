@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>입력 칸</title>
+<style>
+    /* 수정된 스타일 */
+    .inputField::-webkit-outer-spin-button,
+    .inputField::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .inputField[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    .inputField {
+        height: 4em; /* 높이를 2배로 설정 */
+        width: 50px; /* 너비를 줄임 */
+        margin: 5px; /* 간격 조정 */
+        font-size: 2em; /* 입력된 숫자의 크기를 2배로 설정 */
+    }
+
+    .inputField[readonly] {
+        background-color: #f2f2f2; /* 입력이 완료된 칸은 회색 배경으로 설정 */
+    }
+
+    #submitButton {
+        display: none; /* 제출 버튼을 일단 숨김 */
+    }
+</style>
+</head>
+<body>
+
+<h2>숫자를 입력하세요 (20개의 칸)</h2>
+
+<!-- 숫자 입력 칸 -->
+<div id="inputFields">
+    <!-- 20개의 입력 칸을 생성합니다 -->
+    <input type="number" id="input1" class="inputField" onchange="inputChange(1)">
+    <input type="number" id="input2" class="inputField" onchange="inputChange(2)">
+    <input type="number" id="input3" class="inputField" onchange="inputChange(3)">
+    <input type="number" id="input4" class="inputField" onchange="inputChange(4)">
+    <input type="number" id="input5" class="inputField" onchange="inputChange(5)">
+    <input type="number" id="input6" class="inputField" onchange="inputChange(6)">
+    <input type="number" id="input7" class="inputField" onchange="inputChange(7)">
+    <input type="number" id="input8" class="inputField" onchange="inputChange(8)">
+    <input type="number" id="input9" class="inputField" onchange="inputChange(9)">
+    <input type="number" id="input10" class="inputField" onchange="inputChange(10)">
+    <input type="number" id="input11" class="inputField" onchange="inputChange(11)">
+    <input type="number" id="input12" class="inputField" onchange="inputChange(12)">
+    <input type="number" id="input13" class="inputField" onchange="inputChange(13)">
+    <input type="number" id="input14" class="inputField" onchange="inputChange(14)">
+    <input type="number" id="input15" class="inputField" onchange="inputChange(15)">
+    <input type="number" id="input16" class="inputField" onchange="inputChange(16)">
+    <input type="number" id="input17" class="inputField" onchange="inputChange(17)">
+    <input type="number" id="input18" class="inputField" onchange="inputChange(18)">
+    <input type="number" id="input19" class="inputField" onchange="inputChange(19)">
+    <input type="number" id="input20" class="inputField" onchange="inputChange(20)">
+</div>
+
+<!-- 입력 버튼 -->
+<button id="submitButton" onclick="window.open('https://www.example.com', '_blank')">제출</button>
+
+<!-- 수정할 수 없는 칸의 수 -->
+<p id="uneditableCount">수정할 수 없는 칸의 수: 0</p>
+
+<script>
+// 수정할 수 없는 칸의 수를 저장하는 변수
+let uneditableCount = 0;
+
+// 각 입력 칸이 수정될 때마다 호출되는 함수
+function inputChange(index) {
+    const inputField = document.getElementById('input' + index);
+    // 입력 칸이 수정되었을 때, 수정할 수 없게 만듭니다.
+    inputField.setAttribute('readonly', true);
+    
+    // 모든 입력 칸이 채워지면 제출 버튼을 나타냅니다.
+    const inputFields = document.getElementsByClassName('inputField');
+    let allFilled = true;
+    for (let i = 0; i < inputFields.length; i++) {
+        if (inputFields[i].value === "") {
+            allFilled = false;
+            break;
+        }
+    }
+    if (allFilled) {
+        document.getElementById('submitButton').style.display = "block";
+    }
+    
+    // 수정할 수 없는 칸의 수를 다시 계산합니다.
+    countUneditable();
+}
+
+// 수정할 수 없는 칸의 수를 계산하는 함수
+function countUneditable() {
+    uneditableCount = 0;
+    const inputFields = document.getElementsByClassName('inputField');
+    // 모든 입력 칸을 확인하여 수정할 수 없는 칸의 수를 세어 저장합니다.
+    for (let i = 0; i < inputFields.length; i++) {
+        if (inputFields[i].readOnly) {
+            uneditableCount++;
+        }
+    }
+    // 수정할 수 없는 칸의 수를 출력합니다.
+    document.getElementById('uneditableCount').innerText = '수정할 수 없는 칸의 수: ' + uneditableCount;
+}
+</script>
+
+</body>
+</html>

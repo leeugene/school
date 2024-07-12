@@ -12,15 +12,16 @@
         margin: 0;
     }
 
-    .inputField[type=number] {
+    .inputField[type="text"] {
         -moz-appearance: textfield;
     }
 
     .inputField {
-        height: 4em; /* 높이를 2배로 설정 */
-        width: 50px; /* 너비를 줄임 */
+        height: 2em; /* 높이를 2배로 설정 */
+        width: 200px; /* 너비를 줄임 */
         margin: 5px; /* 간격 조정 */
-        font-size: 2em; /* 입력된 숫자의 크기를 2배로 설정 */
+        font-size: 4em;
+        text-align: center; 
     }
 
     .inputField[readonly] {
@@ -34,38 +35,38 @@
 </head>
 <body>
 
-<h2>숫자를 입력하세요 (20개의 칸)</h2>
+<h2>오름차순으로 입력하세요. 20칸을 모두 입력 한 후 입력 후에는 캡쳐해서 점수를 계산합니다.</h2>
 
 <!-- 숫자 입력 칸 -->
 <div id="inputFields">
     <!-- 20개의 입력 칸을 생성합니다 -->
-    <input type="number" id="input1" class="inputField" onchange="inputChange(1)">
-    <input type="number" id="input2" class="inputField" onchange="inputChange(2)">
-    <input type="number" id="input3" class="inputField" onchange="inputChange(3)">
-    <input type="number" id="input4" class="inputField" onchange="inputChange(4)">
-    <input type="number" id="input5" class="inputField" onchange="inputChange(5)">
-    <input type="number" id="input6" class="inputField" onchange="inputChange(6)">
-    <input type="number" id="input7" class="inputField" onchange="inputChange(7)">
-    <input type="number" id="input8" class="inputField" onchange="inputChange(8)">
-    <input type="number" id="input9" class="inputField" onchange="inputChange(9)">
-    <input type="number" id="input10" class="inputField" onchange="inputChange(10)">
-    <input type="number" id="input11" class="inputField" onchange="inputChange(11)">
-    <input type="number" id="input12" class="inputField" onchange="inputChange(12)">
-    <input type="number" id="input13" class="inputField" onchange="inputChange(13)">
-    <input type="number" id="input14" class="inputField" onchange="inputChange(14)">
-    <input type="number" id="input15" class="inputField" onchange="inputChange(15)">
-    <input type="number" id="input16" class="inputField" onchange="inputChange(16)">
-    <input type="number" id="input17" class="inputField" onchange="inputChange(17)">
-    <input type="number" id="input18" class="inputField" onchange="inputChange(18)">
-    <input type="number" id="input19" class="inputField" onchange="inputChange(19)">
-    <input type="number" id="input20" class="inputField" onchange="inputChange(20)">
+    <input type="text" id="input1" class="inputField" onchange="inputChange(1)">
+    <input type="text" id="input2" class="inputField" onchange="inputChange(2)">
+    <input type="text" id="input3" class="inputField" onchange="inputChange(3)">
+    <input type="text" id="input4" class="inputField" onchange="inputChange(4)">
+    <input type="text" id="input5" class="inputField" onchange="inputChange(5)">
+    <input type="text" id="input6" class="inputField" onchange="inputChange(6)">
+    <input type="text" id="input7" class="inputField" onchange="inputChange(7)">
+    <input type="text" id="input8" class="inputField" onchange="inputChange(8)">
+    <input type="text" id="input9" class="inputField" onchange="inputChange(9)">
+    <input type="text" id="input10" class="inputField" onchange="inputChange(10)">
+    <input type="text" id="input11" class="inputField" onchange="inputChange(11)">
+    <input type="text" id="input12" class="inputField" onchange="inputChange(12)">
+    <input type="text" id="input13" class="inputField" onchange="inputChange(13)">
+    <input type="text" id="input14" class="inputField" onchange="inputChange(14)">
+    <input type="text" id="input15" class="inputField" onchange="inputChange(15)">
+    <input type="text" id="input16" class="inputField" onchange="inputChange(16)">
+    <input type="text" id="input17" class="inputField" onchange="inputChange(17)">
+    <input type="text" id="input18" class="inputField" onchange="inputChange(18)">
+    <input type="text" id="input19" class="inputField" onchange="inputChange(19)">
+    <input type="text" id="input20" class="inputField" onchange="inputChange(20)">
 </div>
 
 <!-- 입력 버튼 -->
-<button id="submitButton" onclick="window.open('https://www.example.com', '_blank')">제출</button>
+<button id="submitButton" onclick="window.open('https://forms.gle/Gth4Y9yaz9nV9ZXw8', '_blank')">점수 입력</button>
 
 <!-- 수정할 수 없는 칸의 수 -->
-<p id="uneditableCount">수정할 수 없는 칸의 수: 0</p>
+<p id="uneditableCount">입력된 칸의 수: 0</p>
 
 <script>
 // 수정할 수 없는 칸의 수를 저장하는 변수
